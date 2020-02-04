@@ -1,0 +1,17 @@
+.baseButton {
+    margin-top : 3%;
+    margin-bottom : 3%;
+    padding-right : 1%;
+    padding-left : 1%;
+    margin-left : 1%;
+}
+
+.continueButton {
+    color : #FFF;
+    background-color: #0070D2;
+}
+
+.disabledButton {
+    color : #FFF;
+    background-color: #96ACD0;
+}

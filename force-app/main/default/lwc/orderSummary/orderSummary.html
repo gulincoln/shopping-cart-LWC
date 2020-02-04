@@ -1,0 +1,56 @@
+<template>
+    <lightning-card title="Order Summary" icon-name="standard:fulfillment_order">
+        <div class="slds-p-top_medium slds-p-left_medium ">
+            <p class="slds-text-heading_small">Hello, {userName}</p>
+        </div>
+        <br/>
+        <div class="slds-m-around_medium" style="text-align:center;">
+            <lightning-button variant="neutral" label="New Purchase" onclick={executeNewPurchase}></lightning-button>
+        </div>
+        <section style="padding-left:30px;">
+            <h1 class="slds-p-top_small slds-text-heading_small">Purchases</h1><br/>
+            <table>
+                <tr>
+                    <th>Order Number</th>
+                    <th>Address</th>
+                    <th>Total Price</th>
+                    <th>Action</th>
+                </tr>
+                
+                <template for:each={purchases} for:item="purchase" for:index="purchasePosition">
+                    <tr key={purchase.index} style="margin-bottom:50%">
+                        <td style="width: 30%;">
+                            <p class="slds-text-title" aria-rowindex={purchasePosition}>{purchase.name}</p>
+                        </td>
+                        <td style="width: 21%;">
+                            <p class="slds-text-title" aria-rowindex={purchasePosition}>{purchase.address}</p>    <!-- formatted text area -->
+                        </td>
+                        <td style="width: 18%;">
+                            <lightning-formatted-number 
+                                class="slds-m-bottom_small slds-text-title"
+                                value={purchase.totalPrice} 
+                                format-style="currency" 
+                                currency-code="BRL">
+                            </lightning-formatted-number>
+                            
+                        </td>
+                        <!-- button to remove purchase item -->
+                        <td style="padding-left:10px;width: 16%;" key={purchase.id}>
+                            <button class="slds-button slds-button_icon" aria-label="remover_item" data-record={purchase.id} onclick={handleRemovePurchase}>
+                                <svg class="slds-button__icon slds-button__icon_large" data-key="recycle_bin_empty" aria-hidden="true">
+                                    <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#recycle_bin_empty"></use>
+                                </svg>
+                            </button>
+                        </td>
+    
+                    </tr>
+                </template>
+            </table>
+        </section>
+        
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading"></lightning-spinner>
+        </template>
+
+    </lightning-card>
+</template>

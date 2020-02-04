@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>AbstractRepository</members>
+        <members>AccountRepository</members>
+        <members>AccountService</members>
+        <members>OrderBuilder</members>
+        <members>OrderController</members>
+        <members>OrderDetail</members>
+        <members>OrderItemRepository</members>
+        <members>OrderItemService</members>
+        <members>OrderItemTransformer</members>
+        <members>OrderRepository</members>
+        <members>OrderService</members>
+        <members>OrderSummaryController</members>	
+        <members>PagedResult</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>errorMessage</members>
+        <members>navigationTab</members>
+        <members>orderAddress</members>
+        <members>orderConfirmation</members>
+        <members>orderDetails</members>
+        <members>orderSummary</members>
+        <members>paginator</members>
+        <members>productCard</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <version>47.0</version>
+</Package>

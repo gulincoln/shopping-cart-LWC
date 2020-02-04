@@ -1,0 +1,41 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "baseUrl": ".",
+        "paths": {
+            "c/errorMessage": [
+                "errorMessage/errorMessage.js"
+            ],
+            "c/navigationTab": [
+                "navigationTab/navigationTab.js"
+            ],
+            "c/orderAddress": [
+                "orderAddress/orderAddress.js"
+            ],
+            "c/orderDetails": [
+                "orderDetails/orderDetails.js"
+            ],
+            "c/paginator": [
+                "paginator/paginator.js"
+            ],
+            "c/productCard": [
+                "productCard/productCard.js"
+            ],
+            "c/orderSummary": [
+                "orderSummary/orderSummary.js"
+            ],
+            "c/orderConfirmation": [
+                "orderConfirmation/orderConfirmation.js"
+            ]
+        }
+    },
+    "include": [
+        "**/*",
+        "../../../../.sfdx/typings/lwc/**/*.d.ts"
+    ],
+    "typeAcquisition": {
+        "include": [
+            "jest"
+        ]
+    }
+}

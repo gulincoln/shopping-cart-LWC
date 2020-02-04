@@ -1,0 +1,106 @@
+<template>
+    <lightning-card title="Order Details" icon-name="standard:fulfillment_order">
+        <div class="slds-p-top_medium slds-p-left_medium">
+            <template if:true={hasProducts}>
+                <table>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th></th>
+                    </tr>
+                    
+        
+                    <template for:each={_products} for:item="product" for:index="productPosition">
+                        <tr key={product.index} style="margin-bottom:50%">
+                            <td style="width: 30%;">
+                                <p class="slds-text-title" aria-rowindex={productPosition}>{product.name}</p>
+                            </td>
+                            <td style="width: 21%;">
+                                <p class="slds-text-title" aria-rowindex={productPosition}>{product.category}</p>
+                            </td>
+                            <td style="width: 18%;">
+                                <lightning-formatted-number 
+                                    class="slds-m-bottom_small slds-text-title"
+                                    value={product.price} 
+                                    format-style="currency" 
+                                    currency-code="BRL">
+                                </lightning-formatted-number>
+                                
+                            </td>
+                            <td style="width: 16%;">
+                                <lightning-input 
+                                    class="slds-m-bottom_small slds-text-title"
+                                    type="number"
+                                    min="0"
+                                    step="1"
+                                    aria-rowindex={productPosition}
+                                    value={product.quantity}
+                                    onchange={handleChangeQuantity} >
+                                </lightning-input>
+                            </td>
+        
+                            <!-- button to remove item from cart -->
+                            <td style="padding-left:10px;width: 16%;" key={product.name}>
+                                <button class="slds-button slds-button_icon" aria-label="remover_item" data-record={product.name} onclick={handleRemoveProduct}>
+                                    <svg class="slds-button__icon slds-button__icon_large" data-key="recycle_bin_empty" aria-hidden="true">
+                                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#recycle_bin_empty"></use>
+                                    </svg>
+                                </button>
+                            </td>
+        
+                        </tr>
+                    </template>
+                </table>
+            </template>
+            <template if:false={hasProducts}>
+                <div class="slds-p-around_large" style="text-align:center;">
+                    <img src={empty_cart} width="60%"/>
+                    <p class="slds-p-around_small">Empty Cart. Please select a Product.</p>
+                </div>
+            </template>
+        </div>
+        <br/>
+
+        <template if:true={hasProducts}>
+            <div class="slds-m-around_medium slds-p-top_medium slds-p-left_medium">
+                <div class="slds-text-heading_small" style="text-align:right;">
+                    Total Price: 
+                    <lightning-formatted-number 
+                        class="slds-m-bottom_small slds-m-left_small slds-text-heading_small"
+                        value={totalPrice} 
+                        format-style="currency" 
+                        currency-code="BRL">
+                    </lightning-formatted-number>
+                </div>
+            </div>
+            <br/>
+
+            <div class="slds-m-around_medium" style="text-align:center;">
+                <lightning-button class="baseButton" variant="destructive" label="Clear Cart" disabled={hasNoProducts} onclick={clearCart} icon-name="utility:delete"></lightning-button>
+            </div>
+            <br/>
+
+            <c-order-address ondeliveryaddress={handleAddressEvent}></c-order-address><br/>
+
+        </template>
+
+        <template if:true={hasProductsAndAddress}>
+            <div class="slds-m-around_medium" style="text-align:center;">
+                <lightning-button class="baseButton" variant="brand" label="Continue" disabled={isContinueDisabled} onclick={openConfirmationDialog}></lightning-button>
+            </div>
+        </template>
+
+        <template if:true={showConfirmation}>
+            <c-order-confirmation 
+                order-id={orderId} 
+                products={_products}
+                address={address}
+                total-price={totalPrice}
+                oncancelconfirmation={handleCancelConfirmation}>
+            </c-order-confirmation>
+        </template>
+
+    </lightning-card>
+</template>

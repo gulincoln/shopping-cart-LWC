@@ -1,0 +1,38 @@
+<template>
+    
+    <lightning-card title="Address Information" icon-name="standard:address">
+        
+        <div class="slds-m-around_medium" style="text-align:center;">
+            <lightning-radio-group 
+                name="addressSelection"
+                label="Select Delivery"
+                options={deliveries}
+                type="radio"
+                onchange={handleChangeDelivery}>
+            </lightning-radio-group>
+            <br/>
+            <div class="slds-p-top_medium slds-p-bottom_medium slds-p-left_medium">
+                <lightning-input 
+                    type="date" 
+                    name="deliveryDate" 
+                    value={date}
+                    label="Delivery Date" 
+                    disabled={hasNoDeliverySelected}
+                    required={hasDeliverySelected}
+                    onchange={handleChangeDeliverDate} >
+                </lightning-input>
+            </div>
+            <div class="slds-p-top_medium slds-p-bottom_medium slds-p-left_medium">
+                <lightning-input 
+                    name="deliveryAddress" 
+                    value={address}
+                    label="Delivery Address" 
+                    disabled={isDeliveryLocal} 
+                    required={isDeliveryHome}
+                    onchange={handleChangeAddress}></lightning-input>
+            </div>
+
+        </div>
+    </lightning-card>
+
+</template>

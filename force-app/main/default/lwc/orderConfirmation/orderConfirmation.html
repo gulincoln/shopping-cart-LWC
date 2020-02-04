@@ -1,0 +1,76 @@
+<template>
+    <section
+            role="dialog"
+            tabindex="-1"
+            aria-labelledby="modal-heading-01"
+            aria-modal="true"
+            aria-describedby="modal-content-id-1"
+            class="slds-modal slds-fade-in-open slds-modal_large">
+
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <p class="slds-text-heading_small">Please confirm your Order!</p>
+            </header>
+            <div class="slds-modal__content slds-p-around_medium warning-messages" id="modal-content-id-1" >
+
+                <p class="slds-text-heading_small slds-p-bottom_large">See your Order Details:</p>
+
+                <table style="margin-bottom: 30px;">
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </tr>
+
+                    <template for:each={products} for:item="product" for:index="productPosition">
+                        <tr key={product.index} style="margin-bottom:50%">
+                            <td style="width: 30%;">
+                                <p class="slds-text-title" aria-rowindex={productPosition}>{product.name}</p>
+                            </td>
+                            <td style="width: 21%;">
+                                <p class="slds-text-title" aria-rowindex={productPosition}>{product.category}</p>
+                            </td>
+                            <td style="width: 18%;">
+                                <lightning-formatted-number class="slds-m-bottom_small slds-text-title" value={product.price} format-style="currency" currency-code="BRL"></lightning-formatted-number>
+                            </td>
+                            <td style="width: 16%;">
+                                <p class="slds-text-title" aria-rowindex={productPosition}>{product.quantity}</p>
+                            </td>
+                        </tr>
+                    </template>
+                </table>
+
+                <div class="slds-m-around_medium slds-p-top_medium slds-p-left_medium">
+                    <div class="slds-text-heading_small" style="text-align:right;">
+                        Total Price: 
+                        <lightning-formatted-number 
+                            class="slds-m-bottom_small slds-m-left_small slds-text-heading_small"
+                            value={totalPrice} 
+                            format-style="currency" 
+                            currency-code="BRL">
+                        </lightning-formatted-number>
+                    </div>
+                </div>
+                <br/>
+            </div>   
+            
+            <footer class="slds-modal__footer">
+                <div class="slds-m-around_medium" style="text-align:center;">
+                    <lightning-button class="baseButton slds-p-right_medium" variant="destructive" label="Cancel" onclick={cancelConfirmation}></lightning-button>
+                    <lightning-button class="baseButton" variant="brand" label="Yes, proceed!" onclick={executeOrder}></lightning-button>
+                </div>
+            </footer>
+
+            <template if:true={hasError}>
+                <c-error-message message={errorMessage}></c-error-message>
+            </template>
+
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading"></lightning-spinner>
+            </template>
+
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>
