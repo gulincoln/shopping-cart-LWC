@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="Search" icon-name="standard:calibration">
+        <div class="slds-m-horizontal_medium">
+            <lightning-input label="Search a Title" type="search" onchange={handleSearchKeyChange} ></lightning-input>
+            <section>
+                <h1 class="slds-p-top_small">Category</h1>
+                <template if:true={categories.data}>
+                    <lightning-layout>
+                        <template for:each={categories.data.values} for:item="category">
+                            <lightning-layout-item padding="around-small" key={category.value}>
+                                <lightning-input key={category.value}
+                                    label={category.label}
+                                    data-filter="categories"
+                                    data-value={category.value}
+                                    type="checkbox"
+                                    checked
+                                    onchange={handleCheckboxChange}
+                                ></lightning-input>
+                            </lightning-layout-item>
+                        </template>
+                    </lightning-layout>
+                </template>
+                <template if:true={categories.error}>
+                    <c-error-message message="Error when Loading Categories!"></c-error-message>
+                </template>
+            </section>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,41 @@
+<template>
+    <div class="slds-card slds-p-around_x-small">
+        <template if:true={searchBarIsVisible}>
+            <lightning-input label="Search Key" type="text" onchange={handleSearchKeyChange} class="search-bar" ></lightning-input>
+        </template>
+
+        <template if:true={products.data}>
+            <template if:true={products.data.records.length}>
+                <div class="c-container">
+                    <lightning-layout multiple-rows>
+                        <template for:each={products.data.records} for:item="product" >
+                            <lightning-layout-item size="4" padding="around-small" key={product.Id}>
+                                <c-product-card 
+                                    product={product} 
+                                    already-added={product.alreadyAddedToCart}
+                                    onselected={handleProductSelected} 
+                                    class="slds-m-around_x-small" > </c-product-card>
+                            </lightning-layout-item>
+                        </template>
+                    </lightning-layout>
+                </div>
+                <c-paginator
+                    page-number={pageNumber}
+                    page-size={products.data.pageSize}
+                    total-item-count={products.data.totalItemCount}
+                    onprevious={handlePreviousPage}
+                    onnext={handleNextPage}
+                ></c-paginator>
+            </template>
+            <template if:false={products.data.records.length}>
+                <div class="slds-p-around_large" style="text-align:center;">
+                    <img src={not_founded} class="logo" alt="Company logo" />
+                    <p class="slds-p-around_small">There are no products matching your current search</p>
+                </div>
+            </template>
+        </template>
+        <template if:true={products.error}>
+            <c-error-message message={products.error}></c-error-message>
+        </template>
+    </div>
+</template>

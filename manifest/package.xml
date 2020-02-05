@@ -25,7 +25,45 @@
         <members>orderSummary</members>
         <members>paginator</members>
         <members>productCard</members>
+        <members>productListItems</members>
+        <members>productSearch</members>
+        <members>pubsub</members>
         <name>LightningComponentBundle</name>
     </types>
+    <types>
+        <members>Account</members>
+        <members>Order__c</members>
+        <members>OrderItem__c</members>
+        <members>Product__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>PurchaseApp</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>Account.Active__c</members>
+        <members>Order__c.Account__c</members>
+        <members>Order__c.Address__c</members>
+        <members>Order__c.DeliveryDate__c</members>
+        <members>Order__c.DeliveryType__c</members>
+        <members>Order__c.StartDate__c</members>
+        <members>Order__c.Status__c</members>
+        <members>Order__c.TotalPrice__c</members>
+        <members>OrderItem__c.Order__c</members>
+        <members>OrderItem__c.Price__c</members>
+        <members>OrderItem__c.Product__c</members>
+        <members>Product__c.Category__c</members>
+        <members>Product__c.Description__c</members>
+        <members>Product__c.Image__c</members>
+        <members>Product__c.Picture_URL__c</members>
+        <members>Product__c.Price__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>My_Purchases</members>
+        <members>Shopping_Cart</members>
+    <name>CustomTab</name>
+  </types>
     <version>47.0</version>
 </Package>
