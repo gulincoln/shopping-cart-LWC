@@ -1,0 +1,25 @@
+{
+  "name": "shopping-cart-lwc",
+  "version": "1.0.0",
+  "description": "A component-based system created on Salesforce Lightning Web Component (LWC)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:unit": "sfdx-lwc-jest",
+    "test:unit:watch": "sfdx-lwc-jest --watch",
+    "test:unit:debug": "sfdx-lwc-jest --debug"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gulincoln/shopping-cart-LWC.git"
+  },
+  "author": "Gustavo Lincoln",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gulincoln/shopping-cart-LWC/issues"
+  },
+  "homepage": "https://github.com/gulincoln/shopping-cart-LWC#readme",
+  "devDependencies": {
+    "@salesforce/sfdx-lwc-jest": "^0.6.2"
+  }
+}

@@ -12,8 +12,14 @@
             "c/orderAddress": [
                 "orderAddress/orderAddress.js"
             ],
+            "c/orderConfirmation": [
+                "orderConfirmation/orderConfirmation.js"
+            ],
             "c/orderDetails": [
                 "orderDetails/orderDetails.js"
+            ],
+            "c/orderSummary": [
+                "orderSummary/orderSummary.js"
             ],
             "c/paginator": [
                 "paginator/paginator.js"
@@ -21,11 +27,14 @@
             "c/productCard": [
                 "productCard/productCard.js"
             ],
-            "c/orderSummary": [
-                "orderSummary/orderSummary.js"
+            "c/productListItems": [
+                "productListItems/productListItems.js"
             ],
-            "c/orderConfirmation": [
-                "orderConfirmation/orderConfirmation.js"
+            "c/productSearch": [
+                "productSearch/productSearch.js"
+            ],
+            "c/pubsub": [
+                "pubsub/pubsub.js"
             ]
         }
     },

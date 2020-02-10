@@ -1,0 +1,23 @@
+[
+    {   
+        "Id":"a035w00000yR1JoAAK",
+        "Name":"The Pragmatic Programmer",
+        "Category__c":"Others",
+        "Price__c":152.90,
+        "Picture_URL__c":"https://images-na.ssl-images-amazon.com/images/I/418M2053aNL._SX396_BO1,204,203,200_.jpg"
+    },
+    {
+        "Id":"a035w00000yR1JpAAK",
+        "Name":"Clean Coder",
+        "Category__c":"Others",
+        "Price__c":86.10,
+        "Picture_URL__c":"https://images-na.ssl-images-amazon.com/images/I/51MoTaVrS7L._SX260_.jpg"
+    },
+    {
+        "Id":"a035w00000yR1JnAAK",
+        "Name":"The Snowball",
+        "Category__c":"Business",
+        "Price__c":85.78,
+        "Picture_URL__c":"https://images-na.ssl-images-amazon.com/images/I/51f-0RjOF5L._SY346_.jpg"
+    }
+]

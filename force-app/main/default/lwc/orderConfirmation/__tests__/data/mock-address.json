@@ -1,0 +1,17 @@
+[
+    {   
+        "delivery":"local",
+        "address":"Rua Paulo da Silva, 1123",
+        "deliveryDate":"2020-02-12"
+    },
+    {   
+        "delivery":"home",
+        "address":"Rua Estácio de Sá, 435",
+        "deliveryDate":"2020-02-14"
+    },
+    {   
+        "delivery":"local",
+        "address":"Rua Uiraporu, 358",
+        "deliveryDate":"2020-02-16"
+    }
+]
